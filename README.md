@@ -3,7 +3,8 @@ From arabic _prayer_ = **salaat**.
 
 ## base url
 > https://salaat-time.vercel.app/
-
+OR
+> https://namaz-time-anuarbekov.vercel.app/
 ### framework
 React, Vite
 
