@@ -84,7 +84,7 @@ const App = () => {
         ""
       ) : (
         <div className="h-full flex items-center justify-center">
-          <ul className="namaztime py-8 flex flex-col items-center justify-center space-y-8">
+          <ul className="h-fit namaztime flex flex-col items-center justify-center space-y-8">
             <li>
               <a
                 href="https://www.youtube.com/watch?v=TT2aFT_tMXQ&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
