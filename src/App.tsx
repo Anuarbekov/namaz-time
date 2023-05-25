@@ -12,10 +12,10 @@ const App = () => {
         <button
           onClick={(e) => {
             e.preventDefault();
-            setCity("Усть-Каменогорск");
+            setCity("Ust-Kamenogorsk");
           }}
         >
-          Усть-Каменогорск
+          Ust-Kamenogorsk
         </button>
       ),
       key: "0",
@@ -25,10 +25,10 @@ const App = () => {
         <button
           onClick={(e) => {
             e.preventDefault();
-            setCity("Алматы");
+            setCity("Almaty");
           }}
         >
-          Алматы
+          Almaty
         </button>
       ),
       key: "1",
@@ -37,7 +37,7 @@ const App = () => {
       type: "divider",
     },
     {
-      label: "Астана（disabled）",
+      label: "Astana（not yet）",
       key: "3",
       disabled: true,
     },
@@ -51,14 +51,14 @@ const App = () => {
     Dhuhr: "",
     Isha: "",
   });
-  const [city, setCity] = useState<String>("Алматы");
+  const [city, setCity] = useState<String>("Ust-Kamenogorsk");
   const [isNamazTimeLoading, setIsNamazTimeLoading] = useState<Boolean>(false);
 
   useEffect(() => {
     setIsNamazTimeLoading(true);
     axios
       .get(
-        city === "Усть-Каменогорск"
+        city === "Ust-Kamenogorsk"
           ? `${import.meta.env.VITE_API_HOST}/oskemen`
           : `${import.meta.env.VITE_API_HOST}/almaty`
       )
@@ -74,7 +74,7 @@ const App = () => {
   return (
     <div className="main h-screen flex flex-col">
       <div className="h-min mt-2 ml-2">
-        <Dropdown menu={menuProps} trigger={["click"]}>
+        <Dropdown menu={menuProps} trigger={["click"]} className="text-white">
           <Button loading={isNamazTimeLoading ? true : false}>
             <Space>{city}</Space>
           </Button>
@@ -100,7 +100,7 @@ const App = () => {
 
             <li>
               <a
-                href="https://www.youtube.com/watch?v=TT2aFT_tMXQ&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
+                href="https://www.youtube.com/watch?v=wOG6r1iaPm8&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
                 target="_blank"
                 className="cursor-pointer hover:text-lime-500"
               >
@@ -111,7 +111,7 @@ const App = () => {
 
             <li>
               <a
-                href="https://www.youtube.com/watch?v=TT2aFT_tMXQ&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
+                href="https://www.youtube.com/watch?v=-_FADpsVYig&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
                 target="_blank"
                 className="cursor-pointer hover:text-lime-500"
               >
@@ -122,7 +122,7 @@ const App = () => {
 
             <li>
               <a
-                href="https://www.youtube.com/watch?v=TT2aFT_tMXQ&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
+                href="https://www.youtube.com/watch?v=Idr_FL7Plb8&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
                 target="_blank"
                 className="cursor-pointer hover:text-lime-500"
               >
@@ -133,7 +133,7 @@ const App = () => {
 
             <li>
               <a
-                href="https://www.youtube.com/watch?v=TT2aFT_tMXQ&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
+                href="https://www.youtube.com/watch?v=YAActF11cw4&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
                 target="_blank"
                 className="cursor-pointer hover:text-lime-500"
               >
