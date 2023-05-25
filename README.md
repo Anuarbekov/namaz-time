@@ -6,3 +6,4 @@ React, Vite
 Ant Design, Axios, TailwindCSS
 ### used api
 >  https://namaz.muftyat.kz/
+![Muftyat Site](https://github.com/Anuarbekov/namaz-time/assets/68756607/931e92f2-8b83-4d48-ba36-f58b75fb7b3a)
