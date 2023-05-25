@@ -4,3 +4,5 @@ From arabic _prayer_ = **salaat**.
 React, Vite
 ### used libraries
 Ant Design, Axios, TailwindCSS
+### used api
+>  https://namaz.muftyat.kz/
