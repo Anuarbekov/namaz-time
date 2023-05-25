@@ -1,5 +1,5 @@
-# namaz-time  
-From arabic _prayer_ = **salaat**.
+# salaat-time  
+From arabic _prayer_ = **salaat** or **salah** or **namāz**.
 
 ## base url
 > https://salaat-time.vercel.app/
