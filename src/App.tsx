@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { namazTime } from "./interfaces/namazTime";
 
 import type { MenuProps } from "antd";
 import { Dropdown, Space, Button } from "antd";
+import useNamazTime from "./hooks/useNamazTime";
 
 const App = () => {
   const items: MenuProps["items"] = [
@@ -42,17 +42,14 @@ const App = () => {
       disabled: true,
     },
   ];
-  const [todayNamazTime, setTodayNamazTime] = useState<namazTime>({
-    Asr: "",
-    Sunrise: "",
-    Fajr: "",
-    date: "",
-    Maghrib: "",
-    Dhuhr: "",
-    Isha: "",
-  });
   const [city, setCity] = useState<String>("Ust-Kamenogorsk");
-  const [isNamazTimeLoading, setIsNamazTimeLoading] = useState<Boolean>(false);
+
+  const {
+    todayNamazTime,
+    setTodayNamazTime,
+    isNamazTimeLoading,
+    setIsNamazTimeLoading,
+  } = useNamazTime();
 
   useEffect(() => {
     setIsNamazTimeLoading(true);
