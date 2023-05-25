@@ -73,33 +73,80 @@ const App = () => {
     items,
   };
   return (
-    <div className="h-screen flex flex-col">
-      <div className="h-min">
+    <div className="main h-screen flex flex-col">
+      <div className="h-min mt-2 ml-2">
         <Dropdown menu={menuProps} trigger={["click"]}>
           <Button loading={isNamazTimeLoading ? true : false}>
-            <Space>
-              {city}
-              <DownOutlined />
-            </Space>
+            <Space>{city}</Space>
           </Button>
         </Dropdown>
       </div>
       {isNamazTimeLoading ? (
         ""
       ) : (
-        <ul className="h-full flex flex-col items-center justify-center text-5xl space-y-8">
-          <li>Fajr: {todayNamazTime.Fajr}</li>
+        <div className="h-full">
+          <ul className="namaztime py-8 flex flex-col items-center justify-center text-5xl space-y-8">
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=TT2aFT_tMXQ&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
+                target="_blank"
+                className="cursor-pointer hover:text-lime-500"
+              >
+                Fajr:
+              </a>{" "}
+              {todayNamazTime.Fajr}
+            </li>
 
-          <li>Shuruq: {todayNamazTime.Sunrise}</li>
+            <li>
+              Shuruq:
+              {todayNamazTime.Sunrise}
+            </li>
 
-          <li>Dhuhr: {todayNamazTime.Dhuhr}</li>
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=TT2aFT_tMXQ&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
+                target="_blank"
+                className="cursor-pointer hover:text-lime-500"
+              >
+                Dhuhr:
+              </a>{" "}
+              {todayNamazTime.Dhuhr}
+            </li>
 
-          <li>Asr: {todayNamazTime.Asr}</li>
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=TT2aFT_tMXQ&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
+                target="_blank"
+                className="cursor-pointer hover:text-lime-500"
+              >
+                Asr:
+              </a>{" "}
+              {todayNamazTime.Asr}
+            </li>
 
-          <li>Maghrib: {todayNamazTime.Maghrib}</li>
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=TT2aFT_tMXQ&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
+                target="_blank"
+                className="cursor-pointer hover:text-lime-500"
+              >
+                Maghrib:
+              </a>{" "}
+              {todayNamazTime.Maghrib}
+            </li>
 
-          <li>Isha: {todayNamazTime.Isha}</li>
-        </ul>
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=TT2aFT_tMXQ&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
+                target="_blank"
+                className="cursor-pointer hover:text-lime-500"
+              >
+                Isha:
+              </a>{" "}
+              {todayNamazTime.Isha}
+            </li>
+          </ul>
+        </div>
       )}
     </div>
   );
