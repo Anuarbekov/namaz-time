@@ -37,7 +37,7 @@ const App = () => {
       type: "divider",
     },
     {
-      label: "Astana（not yet）",
+      label: "Astana（in progress）",
       key: "3",
       disabled: true,
     },
@@ -68,20 +68,20 @@ const App = () => {
       });
   }, [city]);
 
-  const menuProps = {
+  const cityProps = {
     items,
   };
   return (
     <div className="main h-screen flex flex-col">
       <div className="h-min mt-2 ml-2">
-        <Dropdown menu={menuProps} trigger={["click"]} className="text-white">
+        <Dropdown menu={cityProps} trigger={["click"]} className="text-white">
           <Button loading={isNamazTimeLoading ? true : false}>
             <Space>{city}</Space>
           </Button>
         </Dropdown>
       </div>
       {isNamazTimeLoading ? (
-        ""
+        <></>
       ) : (
         <div className="h-full flex items-center justify-center">
           <ul className="h-fit namaztime flex flex-col items-center justify-center space-y-8">
