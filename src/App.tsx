@@ -83,8 +83,8 @@ const App = () => {
       {isNamazTimeLoading ? (
         ""
       ) : (
-        <div className="h-full">
-          <ul className="namaztime py-8 flex flex-col items-center justify-center text-5xl space-y-8">
+        <div className="h-full flex items-center justify-center">
+          <ul className="namaztime py-8 flex flex-col items-center justify-center space-y-8">
             <li>
               <a
                 href="https://www.youtube.com/watch?v=TT2aFT_tMXQ&list=PLgfsDRXXIm97D7A_cMhbXNRKlKan_Zwy8"
@@ -96,10 +96,7 @@ const App = () => {
               {todayNamazTime.Fajr}
             </li>
 
-            <li>
-              Shuruq:
-              {todayNamazTime.Sunrise}
-            </li>
+            <li>Shuruq: {todayNamazTime.Sunrise}</li>
 
             <li>
               <a

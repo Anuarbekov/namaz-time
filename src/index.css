@@ -21,6 +21,19 @@
 }
 .namaztime {
   background-color: #ffffff10;
+  font-size: 48px;
   backdrop-filter: blur(100px);
   -webkit-backdrop-filter: blur(100px);
+  padding: 32px;
+}
+
+@media screen and (max-width: 1200px) {
+  .namaztime {
+    background-color: #ffffff10;
+    font-size: calc(24px + (48 - 24) * ((100vw - 320px) / (1200 - 320)));
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    padding: calc(16px + (32 - 16) * ((100vw - 320px) / (1200 - 320)));
+   
+  }
 }
