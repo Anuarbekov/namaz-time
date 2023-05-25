@@ -1,2 +1,2 @@
 # namaz-time
-From arabic "prayer" = "salaat"
+From arabic _prayer_ = **salaat**
