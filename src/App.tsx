@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import useDate from "./hooks/useDate";
 import { namazTime } from "./interfaces/namazTime";
 
 import { DownOutlined } from "@ant-design/icons";
@@ -44,7 +43,6 @@ const App = () => {
       disabled: true,
     },
   ];
-  const date = useDate();
   const [todayNamazTime, setTodayNamazTime] = useState<namazTime>({
     Asr: "",
     Sunrise: "",
@@ -55,17 +53,19 @@ const App = () => {
     Isha: "",
   });
   const [city, setCity] = useState<String>("Алматы");
+  const [isNamazTimeLoading, setIsNamazTimeLoading] = useState<Boolean>(false);
+
   useEffect(() => {
+    setIsNamazTimeLoading(true);
     axios
       .get(
         city === "Усть-Каменогорск"
-          ? "https://namaz.muftyat.kz/kk/api/times/2023/49.95/82.616667"
-          : "https://namaz.muftyat.kz/kk/api/times/2023/43.238293/76.945465"
+          ? `${import.meta.env.VITE_API_HOST}/oskemen`
+          : `${import.meta.env.VITE_API_HOST}/almaty`
       )
       .then((res) => {
-        setTodayNamazTime(
-          res.data.result.find((namaz: namazTime) => namaz.date === date)
-        );
+        setTodayNamazTime(res.data);
+        setIsNamazTimeLoading(false);
       });
   }, [city]);
 
@@ -75,8 +75,8 @@ const App = () => {
   return (
     <div className="h-screen flex flex-col">
       <div className="h-min">
-        <Dropdown menu={menuProps}>
-          <Button>
+        <Dropdown menu={menuProps} trigger={["click"]}>
+          <Button loading={isNamazTimeLoading ? true : false}>
             <Space>
               {city}
               <DownOutlined />
@@ -84,20 +84,23 @@ const App = () => {
           </Button>
         </Dropdown>
       </div>
+      {isNamazTimeLoading ? (
+        ""
+      ) : (
+        <ul className="h-full flex flex-col items-center justify-center text-5xl space-y-8">
+          <li>Fajr: {todayNamazTime.Fajr}</li>
 
-      <ul className="h-full flex flex-col items-center justify-center text-5xl space-y-8">
-        <li>Fajr: {todayNamazTime.Fajr}</li>
+          <li>Shuruq: {todayNamazTime.Sunrise}</li>
 
-        <li>Shuruq: {todayNamazTime.Sunrise}</li>
+          <li>Dhuhr: {todayNamazTime.Dhuhr}</li>
 
-        <li>Dhuhr: {todayNamazTime.Dhuhr}</li>
+          <li>Asr: {todayNamazTime.Asr}</li>
 
-        <li>{todayNamazTime.Asr}</li>
+          <li>Maghrib: {todayNamazTime.Maghrib}</li>
 
-        <li>{todayNamazTime.Maghrib}</li>
-
-        <li>{todayNamazTime.Isha}</li>
-      </ul>
+          <li>Isha: {todayNamazTime.Isha}</li>
+        </ul>
+      )}
     </div>
   );
 };
