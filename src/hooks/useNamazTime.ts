@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { ITodayNamazTime, IUseNamazTime } from "../interfaces/namazTime";
+import { ITodayNamazTime } from "../interfaces/namazTime";
 
-const useNamazTime = (): IUseNamazTime => {
+const useNamazTime = () => {
   const [todayNamazTime, setTodayNamazTime] = useState<ITodayNamazTime>({
     Asr: "",
     Sunrise: "",

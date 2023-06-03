@@ -7,6 +7,7 @@ export interface ITodayNamazTime {
   Isha: String;
   date: String;
 }
+
 export interface IUseNamazTime {
   todayNamazTime: ITodayNamazTime;
   setTodayNamazTime: React.Dispatch<React.SetStateAction<ITodayNamazTime>>;
