@@ -43,11 +43,24 @@ const CityDropdown = ({
       key: "1",
     },
     {
+      label: (
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setCity("Astana");
+          }}
+        >
+          Astana
+        </button>
+      ),
+      key: "3",
+    },
+    {
       type: "divider",
     },
     {
-      label: "Astana（in progress）",
-      key: "3",
+      label: "Shymkent (in progress）",
+      key: "4",
       disabled: true,
     },
   ];
@@ -59,16 +72,18 @@ const CityDropdown = ({
   };
   useEffect(() => {
     setIsNamazTimeLoading(true);
-    axios
-      .get(
-        city === "Ust-Kamenogorsk"
-          ? `${import.meta.env.VITE_API_HOST}/oskemen`
-          : `${import.meta.env.VITE_API_HOST}/almaty`
-      )
-      .then((res) => {
-        setTodayNamazTime(res.data);
-        setIsNamazTimeLoading(false);
-      });
+    let link = "";
+    if (city === "Ust-Kamenogorsk") {
+      link = `${import.meta.env.VITE_API_HOST}/oskemen`;
+    } else if (city === "Almaty") {
+      link = `${import.meta.env.VITE_API_HOST}/almaty`;
+    } else {
+      link = `${import.meta.env.VITE_API_HOST}/astana`;
+    }
+    axios.get(link).then((res) => {
+      setTodayNamazTime(res.data);
+      setIsNamazTimeLoading(false);
+    });
   }, [city]);
   return (
     <div className="h-min mt-2 ml-2">
