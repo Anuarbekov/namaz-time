@@ -53,13 +53,26 @@ const CityDropdown = ({
           Astana
         </button>
       ),
+      key: "2",
+    },
+    {
+      label: (
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setCity("Shymkent");
+          }}
+        >
+          Shymkent
+        </button>
+      ),
       key: "3",
     },
     {
       type: "divider",
     },
     {
-      label: "Shymkent (in progress）",
+      label: "Taraz (in progress）",
       key: "4",
       disabled: true,
     },
@@ -77,6 +90,8 @@ const CityDropdown = ({
       link = `${import.meta.env.VITE_API_HOST}/oskemen`;
     } else if (city === "Almaty") {
       link = `${import.meta.env.VITE_API_HOST}/almaty`;
+    } else if (city === "Shymkent") {
+      link = `${import.meta.env.VITE_API_HOST}/shymkent`;
     } else {
       link = `${import.meta.env.VITE_API_HOST}/astana`;
     }
