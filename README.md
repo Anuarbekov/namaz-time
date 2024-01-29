@@ -12,7 +12,7 @@ React, Vite
 Ant Design, Axios, TailwindCSS
 
 ### available cities
-Ust-Kamenogorsk, Almaty
+Ust-Kamenogorsk, Almaty, Astana, Almaty
 
 ### click on salaat type
 Navigating to Youtube tutorial (channel: **Fajr App**) for this type of salaat
