@@ -21,10 +21,10 @@ const CityDropdown = ({
         <button
           onClick={(e) => {
             e.preventDefault();
-            setCity("Ust-Kamenogorsk");
+            setCity("Oskemen");
           }}
         >
-          Ust-Kamenogorsk
+          Oskemen
         </button>
       ),
       key: "0",
@@ -78,7 +78,7 @@ const CityDropdown = ({
     },
   ];
 
-  const [city, setCity] = useState<String>("Ust-Kamenogorsk");
+  const [city, setCity] = useState<String>("Oskemen");
 
   const cityProps = {
     items,
@@ -86,7 +86,7 @@ const CityDropdown = ({
   useEffect(() => {
     setIsNamazTimeLoading(true);
     let link = "";
-    if (city === "Ust-Kamenogorsk") {
+    if (city === "Oskemen") {
       link = `${import.meta.env.VITE_API_HOST}/oskemen`;
     } else if (city === "Almaty") {
       link = `${import.meta.env.VITE_API_HOST}/almaty`;
