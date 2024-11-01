@@ -2,13 +2,7 @@ import type { MenuProps } from "antd";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Dropdown, Space, Button } from "antd";
-import { ITodayNamazTime } from "../interfaces/namazTime";
-
-interface ICityDropdownProps {
-  setIsNamazTimeLoading: React.Dispatch<React.SetStateAction<Boolean>>;
-  setTodayNamazTime: React.Dispatch<React.SetStateAction<ITodayNamazTime>>;
-  isNamazTimeLoading: Boolean;
-}
+import { ICityDropdownProps } from "../interfaces/namazTime";
 
 const CityDropdown = ({
   setIsNamazTimeLoading,
@@ -78,28 +72,39 @@ const CityDropdown = ({
     },
   ];
 
-  const [city, setCity] = useState<String>("Oskemen");
+  const [city, setCity] = useState<string>("Oskemen");
 
   const cityProps = {
     items,
   };
   useEffect(() => {
-    setIsNamazTimeLoading(true);
-    let link = "";
-    if (city === "Oskemen") {
-      link = `${import.meta.env.VITE_API_HOST}/oskemen`;
-    } else if (city === "Almaty") {
-      link = `${import.meta.env.VITE_API_HOST}/almaty`;
-    } else if (city === "Shymkent") {
-      link = `${import.meta.env.VITE_API_HOST}/shymkent`;
-    } else {
-      link = `${import.meta.env.VITE_API_HOST}/astana`;
-    }
-    axios.get(link).then((res) => {
+    const fetchNamazTime = async () => {
+      let link = "";
+      switch (city) {
+        case "Oskemen":
+          link = `${import.meta.env.VITE_API_HOST}/oskemen`;
+          break;
+        case "Almaty":
+          link = `${import.meta.env.VITE_API_HOST}/almaty`;
+          break;
+        case "Shymkent":
+          link = `${import.meta.env.VITE_API_HOST}/shymkent`;
+          break;
+        case "Astana":
+          link = `${import.meta.env.VITE_API_HOST}/astana`;
+          break;
+        default:
+          link = `${import.meta.env.VITE_API_HOST}/oskemen`;
+          break;
+      }
+      const res = await axios.get(link);
       setTodayNamazTime(res.data);
       setIsNamazTimeLoading(false);
-    });
-  }, [city]);
+    };
+    setIsNamazTimeLoading(true);
+    fetchNamazTime();
+  }, [city, setTodayNamazTime, setIsNamazTimeLoading]);
+
   return (
     <div className="h-min mt-2 ml-2">
       <Dropdown menu={cityProps} trigger={["click"]} className="text-white">

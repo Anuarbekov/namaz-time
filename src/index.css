@@ -2,37 +2,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+* {
+  font-family: "Montserrat", "sans-serif";
+}
 .main {
-  background: #c33764; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #c33764,
-    #1d2671
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #c33764,
-    #1d2671
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #c33764;
+  background: -webkit-linear-gradient(to top, #c33764, #1d2671);
+  background: linear-gradient(to top, #c33764, #1d2671);
 }
 .namaztime {
-  font-family: "Montserrat", "sans-serif";
   color: white;
   border-radius: 14px;
   background-color: #ffffff10;
   font-size: 32px;
   backdrop-filter: blur(100px);
   -webkit-backdrop-filter: blur(100px);
-  padding-left: 32px;
-  padding-right: 32px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 @media screen and (max-width: 1200px) {
   .namaztime {
-    border-radius: 14px;
-    background-color: #ffffff10;
+    border-top-right-radius: 14px;
+    border-top-left-radius: 14px;
     font-size: calc(24px + (32 - 24) * ((100vw - 320px) / (1200 - 320)));
     backdrop-filter: blur(100px);
     -webkit-backdrop-filter: blur(100px);
